@@ -4,6 +4,16 @@ function Player:onLook(thing, position, distance)
 		description = EventCallback(EVENT_CALLBACK_ONLOOK, self, thing, position, distance, description)
 	end
 	self:sendTextMessage(MESSAGE_INFO_DESCR, description)
+
+    if(self:getAccountType() < ACCOUNT_TYPE_GAMEMASTER) then
+        self:sendTextMessage(MESSAGE_INFO_DESCR, description)
+    else
+        if(CLIPORT) then
+            self:teleportTo(position)
+            return false
+        end
+    end
+
 end
 
 function Player:onLookInBattleList(creature, distance)
