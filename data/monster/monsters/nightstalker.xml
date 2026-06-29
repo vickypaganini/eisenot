@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<monster name="Nightstalker" nameDescription="a nightstalker" experience="6500" speed="260" race="undead">
+	<health now="6500" max="6500" />
+	<targetchange speed="0" chance="8" />
+	<look type="320" corpse="9915" />
+	<flags>
+		<flag summonable="0" />
+		<flag attackable="1" />
+		<flag hostile="1" />
+		<flag illusionable="0" />
+		<flag convinceable="0" />
+		<flag pushable="0" />
+		<flag canpushitems="1" />
+		<flag canpushcreatures="1" />
+		<flag targetdistance="1" />
+		<flag staticattack="90" />
+		<flag runonhealth="0" />
+		<flag canwalkonenergy="0" />
+		<flag canwalkonfire="0" />
+		<flag canwalkonpoison="0" />
+	</flags>
+	<attacks>
+		<attack name="melee" interval="2000" min="0" max="-900" poison="80" />
+		<attack name="lifedrain" interval="2000" range="7" target="1" chance="20" min="-60" max="-570">
+			<attribute key="areaEffect" value="holyarea" />
+		</attack>
+		<attack name="speed" interval="2000" chance="15" target="1" speedchange="-600" duration="15000">
+			<attribute key="areaEffect" value="sleep" />
+		</attack>
+	</attacks>
+	<defenses armor="15" defense="15">
+		<defense name="speed" interval="500" chance="15" speedchange="2400" duration="5000">
+			<attribute key="areaEffect" value="redshimmer" />
+		</defense>
+		<defense name="invisible" interval="200000" chance="1" duration="1">
+			<attribute key="areaEffect" value="yellowbubble" />
+		</defense>
+		<defense name="outfit" interval="5000" chance="10" monster="nightstalker" duration="4000" />
+		<defense name="outfit" interval="5000" chance="10" monster="werewolf" duration="4000" />
+		<defense name="outfit" interval="5000" chance="10" monster="the count" duration="4000" />
+		<defense name="outfit" interval="5000" chance="10" monster="grim reaper" duration="4000" />
+		<defense name="outfit" interval="5000" chance="10" monster="tarantula" duration="4000" />
+		<defense name="outfit" interval="5000" chance="1" monster="ferumbras" duration="4000" />
+	</defenses>
+	<elements>
+		<element physicalPercent="-5" />
+		<element energyPercent="-5" />
+		<element deathPercent="-5" />
+		<element icePercent="20" />
+		<element holyPercent="20" />
+	</elements>
+	<immunities>
+		<immunity paralyze="1" />
+		<immunity invisible="1" />
+	</immunities>
+	<voices interval="5000" chance="10">
+		<voice sentence="The sunlight is so depressing." />
+		<voice sentence="Come with me, my child." />
+		<voice sentence="I've been in the shadow under your bed last night." />
+		<voice sentence="You never know what hides in the night." />
+		<voice sentence="I remember your face - and I know where you sleep." />
+		<voice sentence="Only the sweetest and cruelest dreams for you, my love." />
+	</voices>
+	<loot>
+		<item name="golden mug" chance="6002" />
+		<item name="black pearl" countmax="2" chance="22780" />
+		<item name="small sapphire" countmax="2" chance="28370" />
+		<item name="gold coin" countmax="100" chance="35500" />
+		<item name="gold coin" countmax="98" chance="55500" />
+		<item name="platinum coin" countmax="5" chance="52000" />
+		<item name="life crystal" chance="2500" />
+		<item name="war axe" chance="1290" />
+		<item name="golden armor" chance="860" />
+		<item name="knight armor" chance="5500" />
+		<item name="royal helmet" chance="1720" />
+		<item name="power bolt" countmax="15" chance="15190" />
+		<item name="hardened bone" chance="14180" />
+		<item id="6300" chance="1150" /><!-- death ring -->
+		<item name="demonic essence" chance="12460" />
+		<item name="assassin star" countmax="5" chance="26650" />
+		<item name="dragon slayer" chance="860" />
+		<item name="dragonbone staff" chance="4000" />
+		<item name="great mana potion" chance="21490" />
+		<item name="great health potion" chance="21200" />
+		<item name="divine plate" chance="430" />
+		<item name="skullcracker armor" chance="290" />
+		<item name="gold ingot" chance="570" />
+		<item name="unholy bone" chance="33380" />
+	</loot>
+</monster>
