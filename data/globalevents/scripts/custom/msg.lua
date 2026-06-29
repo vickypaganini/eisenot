@@ -1,6 +1,6 @@
 function onThink(interval, lastExecution)
 	local MESSAGE = {
-		"[WARNING] Únicos membros da staff: GM Lily, GM Sona.
+		"[WARNING] Únicos membros da staff: GM Lily, GM Sona.",
 		"[REPORT] Todo erro encontrado, favor relatar ao ADM para que seja corrigido o mais breve possivel.",
 		"[INFO] Servidor em desenvolvimento, neste momento não teremos donates.",
 	}
