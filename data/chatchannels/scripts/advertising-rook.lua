@@ -11,7 +11,7 @@ muted:setParameter(CONDITION_PARAM_TICKS, 120000)
 function onSpeak(player, type, message)
 	if player:getAccountType() >= ACCOUNT_TYPE_GAMEMASTER then
 		if type == TALKTYPE_CHANNEL_Y then
-			return TALKTYPE_CHANNEL_O
+			return TALKTYPE_CHANNEL_R1
 		end
 		return true
 	end
