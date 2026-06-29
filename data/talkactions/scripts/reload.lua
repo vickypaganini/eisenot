@@ -61,10 +61,6 @@ function onSay(player, words, param)
 		return true
 	end
 
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
-	end
-
 	logCommand(player, words, param)
 
 	local reloadType = reloadTypes[param:lower()]

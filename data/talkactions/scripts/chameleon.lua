@@ -6,10 +6,6 @@ function onSay(player, words, param)
 		return true
 	end
 
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
-	end
-
 	local itemType = ItemType(param)
 	if itemType:getId() == 0 then
 		itemType = ItemType(tonumber(param))

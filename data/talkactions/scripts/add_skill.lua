@@ -27,10 +27,6 @@ function onSay(player, words, param)
 		return true
 	end
 
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
-	end
-
 	local split = param:splitTrimmed(",")
 	if not split[2] then
 		player:sendCancelMessage("Insufficient parameters.")

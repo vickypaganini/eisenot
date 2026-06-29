@@ -3,10 +3,6 @@ function onSay(player, words, param)
 		return true
 	end
 
-	if player:getAccountType() < ACCOUNT_TYPE_GOD then
-		return false
-	end
-
 	local tile = Tile(player:getPosition())
 	local house = tile and tile:getHouse()
 	if not house then
