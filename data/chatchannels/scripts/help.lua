@@ -73,6 +73,8 @@ function onSpeak(player, type, message)
 			else
 				type = TALKTYPE_CHANNEL_Y
 			end
+		else
+			type = TALKTYPE_CHANNEL_R1
 		end
 	end
 	return type
