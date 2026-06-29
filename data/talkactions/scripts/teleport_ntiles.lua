@@ -17,6 +17,11 @@ function onSay(player, words, param)
 		return false
 	end
 
+	local effect = 11 -- blue teleport
+
+	
 	player:teleportTo(position)
+	position:sendMagicEffect(effect)
+	
 	return false
 end
