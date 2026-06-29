@@ -3,6 +3,7 @@ function onSay(cid, words, param)
     local player = Player(cid) --Get the player
  
     if player:getAccountType() < ACCOUNT_TYPE_GAMEMASTER then
+        player:sendCancelMessage("The command did not work because the player is " .. player:getAccountType())
         return false
     else
         CLIPORT = not CLIPORT      --Set canMove to the opposite bool
