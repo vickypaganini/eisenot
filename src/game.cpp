@@ -4048,9 +4048,6 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 			std::string spectatorMessage;
 
 			Player* tmpPlayer = attacker->getPlayer();
-			if (tmpPlayer->getPosition().z != targetPos.z) {
-				continue;
-			}
 
 			if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
 				message.type = MESSAGE_STATUS_DEFAULT;
