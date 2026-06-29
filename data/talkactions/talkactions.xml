@@ -49,10 +49,10 @@
 	<talkaction words="!serverinfo" script="serverinfo.lua" />
 
 	<!-- test talkactions -->
-	<!--<talkaction words="!z" separator=" " script="magiceffect.lua" />-->
-	<!--<talkaction words="!x" separator=" " script="animationeffect.lua" />-->
+	<talkaction words="!z" separator=" " script="magiceffect.lua" />
+	<talkaction words="!x" separator=" " script="animationeffect.lua" />
 
-	<!----------------------- Custom Systems ------------------------->
+	<!-- Custom Systems -->
 
 	<!-- commands -->
 	<talkaction words="/serversave" script="custom/serversave.lua" />
