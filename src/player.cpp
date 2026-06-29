@@ -92,7 +92,7 @@ std::string Player::getDescription(int32_t lookDistance) const
 		s << "yourself.";
 
 		if (group->access) {
-			s << " You are " << group->name << '.';
+			s << " You are an EisenOT Staff Member.";
 		} else if (vocation->getId() != VOCATION_NONE) {
 			s << " You are " << vocation->getVocDescription() << '.';
 		} else {

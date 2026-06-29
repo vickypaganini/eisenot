@@ -4047,41 +4047,39 @@ bool Game::combatChangeHealth(Creature* attacker, Creature* target, CombatDamage
 
 			std::string spectatorMessage;
 
-			for (Creature* spectator : spectators) {
-				Player* tmpPlayer = spectator->getPlayer();
-				if (tmpPlayer->getPosition().z != targetPos.z) {
-					continue;
-				}
-
-				if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
-					message.type = MESSAGE_STATUS_DEFAULT;
-					message.text = fmt::format("{:s} loses {:s} due to your attack.", target->getNameDescription(), damageString);
-					message.text[0] = std::toupper(message.text[0]);
-				} else if (tmpPlayer == targetPlayer) {
-					message.type = MESSAGE_STATUS_DEFAULT;
-					if (!attacker) {
-						message.text = fmt::format("You lose {:s}.", damageString);
-					} else if (targetPlayer == attackerPlayer) {
-						message.text = fmt::format("You lose {:s} due to your own attack.", damageString);
-					} else {
-						message.text = fmt::format("You lose {:s} due to an attack by {:s}.", damageString, attacker->getNameDescription());
-					}
-				} else {
-					message.type = MESSAGE_STATUS_DEFAULT;
-					if (spectatorMessage.empty()) {
-						if (!attacker) {
-							spectatorMessage = fmt::format("{:s} loses {:s}.", target->getNameDescription(), damageString);
-						} else if (attacker == target) {
-							spectatorMessage = fmt::format("{:s} loses {:s} due to {:s} own attack.", target->getNameDescription(), damageString, targetPlayer ? (targetPlayer->getSex() == PLAYERSEX_FEMALE ? "her" : "his") : "its");
-						} else {
-							spectatorMessage = fmt::format("{:s} loses {:s} due to an attack by {:s}.", target->getNameDescription(), damageString, attacker->getNameDescription());
-						}
-						spectatorMessage[0] = std::toupper(spectatorMessage[0]);
-					}
-					message.text = spectatorMessage;
-				}
-				tmpPlayer->sendTextMessage(message);
+			Player* tmpPlayer = attacker->getPlayer();
+			if (tmpPlayer->getPosition().z != targetPos.z) {
+				continue;
 			}
+
+			if (tmpPlayer == attackerPlayer && attackerPlayer != targetPlayer) {
+				message.type = MESSAGE_STATUS_DEFAULT;
+				message.text = fmt::format("{:s} loses {:s} due to your attack.", target->getNameDescription(), damageString);
+				message.text[0] = std::toupper(message.text[0]);
+			} else if (tmpPlayer == targetPlayer) {
+				message.type = MESSAGE_STATUS_DEFAULT;
+				if (!attacker) {
+					message.text = fmt::format("You lose {:s}.", damageString);
+				} else if (targetPlayer == attackerPlayer) {
+					message.text = fmt::format("You lose {:s} due to your own attack.", damageString);
+				} else {
+					message.text = fmt::format("You lose {:s} due to an attack by {:s}.", damageString, attacker->getNameDescription());
+				}
+			} else {
+				message.type = MESSAGE_STATUS_DEFAULT;
+				if (spectatorMessage.empty()) {
+					if (!attacker) {
+						spectatorMessage = fmt::format("{:s} loses {:s}.", target->getNameDescription(), damageString);
+					} else if (attacker == target) {
+						spectatorMessage = fmt::format("{:s} loses {:s} due to {:s} own attack.", target->getNameDescription(), damageString, targetPlayer ? (targetPlayer->getSex() == PLAYERSEX_FEMALE ? "her" : "his") : "its");
+					} else {
+						spectatorMessage = fmt::format("{:s} loses {:s} due to an attack by {:s}.", target->getNameDescription(), damageString, attacker->getNameDescription());
+					}
+					spectatorMessage[0] = std::toupper(spectatorMessage[0]);
+				}
+				message.text = spectatorMessage;
+			}
+			tmpPlayer->sendTextMessage(message);
 		}
 
 		if (realDamage >= targetHealth) {
